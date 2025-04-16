@@ -670,6 +670,16 @@ class CreateIdf(ITask):
                 Watts_per_Zone_Floor_Area=space.machines.to(
                     ureg.watt / ureg.meter ** 2).m
             )
+        elif sim_settings.ep_version in ["24-1-0"]:
+            idf.newidfobject(
+                "ELECTRICEQUIPMENT",
+                Name=name,
+                Zone_or_ZoneList_or_Space_or_SpaceList_Name=zone_name,
+                Schedule_Name=schedule_name,
+                Design_Level_Calculation_Method="Watts/Area",
+                Watts_per_Floor_Area=space.machines.to(
+                    ureg.watt / ureg.meter ** 2).m
+            )
         else:
             idf.newidfobject(
                 "ELECTRICEQUIPMENT",
@@ -716,6 +726,18 @@ class CreateIdf(ITask):
                 Schedule_Name=schedule_name,
                 Design_Level_Calculation_Method=mode,
                 Watts_per_Zone_Floor_Area=watts_per_zone_floor_area,
+                Return_Air_Fraction=return_air_fraction,
+                Fraction_Radiant=fraction_radiant,
+                Fraction_Visible=fraction_visible
+            )
+        elif sim_settings.ep_version in ["24-1-0"]:
+            idf.newidfobject(
+                "LIGHTS",
+                Name=name,
+                Zone_or_ZoneList_or_Space_or_SpaceList_Name=zone_name,
+                Schedule_Name=schedule_name,
+                Design_Level_Calculation_Method=mode,
+                Watts_per_Floor_Area=watts_per_zone_floor_area,
                 Return_Air_Fraction=return_air_fraction,
                 Fraction_Radiant=fraction_radiant,
                 Fraction_Visible=fraction_visible
