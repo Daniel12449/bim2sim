@@ -44,7 +44,7 @@ class EnergyPlusSimSettings(BuildingSimSettings):
         choices={
             '9-2-0': 'EnergyPlus Version 9-2-0',
             '9-4-0': 'EnergyPlus Version 9-4-0',
-            '24-1-0': 'EnergyPlus Version 24-1-0'  # todo: Test latest version
+            '24-2-0': 'EnergyPlus Version 24-2-0'  # todo: Test latest version
         },
         description='Choose EnergyPlus Version',
         for_frontend=True,

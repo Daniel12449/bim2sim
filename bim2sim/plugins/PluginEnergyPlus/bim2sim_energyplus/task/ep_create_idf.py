@@ -670,7 +670,7 @@ class CreateIdf(ITask):
                 Watts_per_Zone_Floor_Area=space.machines.to(
                     ureg.watt / ureg.meter ** 2).m
             )
-        elif sim_settings.ep_version in ["24-1-0"]:
+        elif sim_settings.ep_version in ["24-2-0"]:
             idf.newidfobject(
                 "ELECTRICEQUIPMENT",
                 Name=name,
@@ -730,7 +730,7 @@ class CreateIdf(ITask):
                 Fraction_Radiant=fraction_radiant,
                 Fraction_Visible=fraction_visible
             )
-        elif sim_settings.ep_version in ["24-1-0"]:
+        elif sim_settings.ep_version in ["24-2-0"]:
             idf.newidfobject(
                 "LIGHTS",
                 Name=name,
